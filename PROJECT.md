@@ -5,7 +5,7 @@ Updated: 2026-11-25 by cursor
 ## Where we stopped (update at the end of every session)
 - Date / agent: 2026-11-25 cursor
 - Goal of last session: Package the server and skill for Cursor, Claude, and Codex
-- Done (with evidence): Public repo `https://github.com/amrkhedr96/upwork-mcp` branch `main`, commit `6f5fac2`. No secrets in the tree.
+- Done (with evidence): Public repo `https://github.com/amrkhedr96/upwork-mcp`. `README.md` is the run guide: clone, install, client config, OAuth, and the 15 tools.
 - In progress / half done: Each person still needs their own OAuth key. This account has none.
 - Next step: Apply for the key, then `upwork_save_credentials` and `upwork_auth_url`
 - Blockers / risks: Live search and submit stay blocked until that key exists. Submit still requires an explicit send.
@@ -40,6 +40,7 @@ uv run server.py
 - confirm=true is the only send switch.
 
 ## Log (newest first, keep 5)
+- 2026-11-25 cursor: expanded README.md into the run guide and pushed it.
 - 2026-11-25 cursor: packaged the skill for Cursor, Claude, and Codex. Server was already wired in Cursor and Codex.
 - 2026-11-25 cursor: added the full workbook export. 156 operations, live sheets waiting on OAuth.
 - 2026-11-24 cursor: created the server, skill, and Cursor MCP entry. Live auth still blocked on an API key.

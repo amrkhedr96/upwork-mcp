@@ -4,25 +4,29 @@
 https://github.com/amrkhedr96/upwork-mcp
 ```
 
-One local MCP server plus one skill. Cursor, Claude, and Codex all talk to the same server. Each person uses their own Upwork API key. The agent searches jobs, analyzes them, drafts a proposal, and submits only after that person says to send it.
+سيرفر وأدوات ومهارة واحدة. Cursor و Claude و Codex بيفتحوا نفس السيرفر. كل شخص يربط حساب Upwork بتاعه. الوكيل يدور على الشغل، يحلّل، يكتب العرض، ويقدّم لما الشخص يقول «ابعت».
 
-## Install
+## التشغيل
 
-Requires Python 3.11+ and `uv`.
+المطلوب: Python 3.11 وبرنامج `uv`.
 
 ```powershell
+git clone https://github.com/amrkhedr96/upwork-mcp.git
 cd upwork-mcp
-uv run python -m unittest tests.test_workbook tests.test_upwork_client
 uv run python install.py
 ```
 
-`install.py` copies the skill into the local skill folders for Cursor, Codex, and Claude.
+الأمر الأخير ينسخ المهارة إلى مجلدات Cursor و Codex و Claude على نفس الجهاز.
 
-## Connect
+## الربط
 
-Replace `C:\path\to\upwork-mcp` with the folder you cloned.
+بدّل المسار بمسار المجلد بعد النسخ. بعد اللصق، اقفل العميل وافتحه تاني.
 
-Cursor, `mcp.json`:
+Cursor. الملف:
+
+```
+%USERPROFILE%\.cursor\mcp.json
+```
 
 ```json
 "upwork": {
@@ -31,7 +35,11 @@ Cursor, `mcp.json`:
 }
 ```
 
-Codex, `config.toml`:
+Codex. الملف:
+
+```
+%USERPROFILE%\.codex\config.toml
+```
 
 ```toml
 [mcp_servers.upwork]
@@ -39,28 +47,70 @@ command = "uv"
 args = ["--directory", "C:\\path\\to\\upwork-mcp", "run", "server.py"]
 ```
 
-Claude Code, from the repo folder, reads `.mcp.json`. Or:
+Claude، من جوه المجلد، أو بالأمر ده:
 
 ```powershell
 claude mcp add upwork -- uv --directory C:\path\to\upwork-mcp run server.py
 ```
 
-Restart the client after adding the server.
+Claude يقدر يقرأ الملف ده لو العميل مفتوح على المجلد:
 
-## First run for each person
+```
+.mcp.json
+```
 
-1. Apply for an OAuth 2.0 key: https://www.upwork.com/developer/keys/apply
-2. Callback URL: `https://www.upwork.com/ab/messages/rooms/`
-3. Ask the agent to save the client id and secret. It stores them under the home `.upwork-mcp` folder and does not print the secret.
-4. Open the auth URL, approve, and give the agent the `code` value.
-5. Say the kind of jobs to find. The agent searches, analyzes, and shows a proposal preview. It submits when you say to send.
+## حساب Upwork
 
-## What the agent does
+1. اطلب مفتاح OAuth 2.0 من هنا:
 
-| Step | Tool |
+```
+https://www.upwork.com/developer/keys/apply
+```
+
+2. النوع: Web project. رابط الرجوع:
+
+```
+https://www.upwork.com/ab/messages/rooms/
+```
+
+3. علّم الصلاحيات دي: Common Entities، Read marketplace Job Postings، Submit Proposal، Client Proposals، Messaging، Offer.
+
+4. قول للوكيل يحفظ معرّف العميل والسر. السر يتسجل هنا ومايترجعش في الشات:
+
+```
+%USERPROFILE%\.upwork-mcp\config.json
+```
+
+5. افتح لينك الموافقة، وافق، وابعث قيمة `code` من الرابط. التوكن يتسجل هنا:
+
+```
+%USERPROFILE%\.upwork-mcp\token.json
+```
+
+6. قول نوع الشغل المطلوب. الوكيل يدور ويحلّل ويعرض المسودة. التقديم يتم بعد «ابعت».
+
+## الأدوات
+
+| الأداة | الوظيفة |
 |---|---|
-| Find jobs | `upwork_search_jobs` |
-| Read one job | `upwork_job` |
-| Analyze and draft | reply, then `upwork_submit_proposal` with `confirm=false` |
-| Submit | same tool with `confirm=true` after you say send |
-| Chat | `upwork_room_messages`, then `upwork_send_message` |
+| `upwork_status` | المفتاح والتوكن موجودين ولا لأ |
+| `upwork_save_credentials` | حفظ معرّف العميل والسر |
+| `upwork_auth_url` | لينك الموافقة |
+| `upwork_exchange_code` | تحويل الكود إلى توكن |
+| `upwork_whoami` | بيانات الحساب |
+| `upwork_search_jobs` | البحث عن وظائف |
+| `upwork_job` | قراءة وظيفة |
+| `upwork_list_proposals` | قائمة العروض |
+| `upwork_proposal` | عرض واحد |
+| `upwork_list_rooms` | غرف الشات |
+| `upwork_room_messages` | رسائل غرفة |
+| `upwork_list_contracts` | العقود |
+| `upwork_submit_proposal` | تقديم. يصرف Connects فقط مع `confirm=true` |
+| `upwork_send_message` | إرسال رسالة. نفس شرط التأكيد |
+| `upwork_export_excel` | ملف Excel |
+
+## فحص سريع
+
+```powershell
+uv run python -m unittest tests.test_workbook tests.test_upwork_client
+```
