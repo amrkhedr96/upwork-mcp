@@ -14,8 +14,8 @@ Updated: 2026-11-25 by cursor
 Installable Upwork agent for Cursor, Claude, and Codex. One stdio server and one skill. Each person authorizes their own account. The agent searches, analyzes, drafts, and submits only after that person says to send.
 
 ## Where
-- Folder: `C:\Users\USER\Projects\upwork-mcp`
-- Data / secrets (path only, never contents): `C:\Users\USER\.upwork-mcp\config.json` and `C:\Users\USER\.upwork-mcp\token.json`
+- Folder: the cloned repository
+- Data / secrets (path only, never contents): `~/.upwork-mcp/config.json` and `~/.upwork-mcp/token.json`
 - Repo / branch / deploy target: `https://github.com/amrkhedr96/upwork-mcp` branch `main`
 
 ## Run
@@ -35,7 +35,6 @@ uv run server.py
 | tests/test_workbook.py | Workbook checks |
 
 ## Decisions and gotchas
-- 2026-11-24: Account API key count was 0. An npm package had been opened in an editor earlier and was not connected.
 - Callback on the Upwork key must equal redirect_uri. Default is the messages rooms URL from the official OAuth example.
 - confirm=true is the only send switch.
 
