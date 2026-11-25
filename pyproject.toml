@@ -1,0 +1,13 @@
+[project]
+name = "upwork-mcp"
+version = "0.1.0"
+description = "Local MCP server for the official Upwork GraphQL API"
+requires-python = ">=3.11"
+dependencies = [
+  "httpx>=0.27",
+  "mcp>=1.9,<2",
+  "openpyxl>=3.1",
+]
+
+[tool.uv]
+package = false

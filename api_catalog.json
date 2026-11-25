@@ -1,0 +1,938 @@
+[
+  {
+    "name": "clientsWorkHistory",
+    "kind": "query",
+    "permission": "\"Job Details Entities - Read-Only Access\"",
+    "description": "Fetch client's work history"
+  },
+  {
+    "name": "jobPosting",
+    "kind": "query",
+    "permission": "One of: \"Read marketplace Job Postings\" OR \"Job Postings - Read-Only Access\"",
+    "description": "Get job posting by its ID"
+  },
+  {
+    "name": "jobPostSkillSearch",
+    "kind": "query",
+    "permission": "\"Ontology - Read-Only Access\"",
+    "description": "Search skills for job post flows by prefLabel, optionally boosting matches that are required by the given occupation. When occupationUid is omitted, behavior matches ontologyElementsSearchByPrefLabel for the same filter values."
+  },
+  {
+    "name": "jobPubDetails",
+    "kind": "query",
+    "permission": "\"Job Details Entities - Read-Only Access\"",
+    "description": "Fetch public job details including client info, opening details, and qualifications"
+  },
+  {
+    "name": "marketplaceJobPosting",
+    "kind": "query",
+    "permission": "\"Read marketplace Job Postings\"",
+    "description": "Get marketplace job posting by its ID"
+  },
+  {
+    "name": "marketplaceJobPostings",
+    "kind": "query",
+    "permission": "\"Read marketplace Job Postings\"",
+    "description": ""
+  },
+  {
+    "name": "marketplaceJobPostingsContents",
+    "kind": "query",
+    "permission": "\"Read marketplace Job Postings\"",
+    "description": "Get marketplace job postings content by ID"
+  },
+  {
+    "name": "countries",
+    "kind": "query",
+    "permission": "\"Common Functionality - Read And Write Access\"",
+    "description": "List of countries. Currently no filtering is available"
+  },
+  {
+    "name": "languages",
+    "kind": "query",
+    "permission": "One of: \"Common Functionality - Read And Write Access\" OR \"Common Entities - Read-Only Access\"",
+    "description": "Get the list of languages"
+  },
+  {
+    "name": "reasons",
+    "kind": "query",
+    "permission": "\"Common Functionality - Read And Write Access\"",
+    "description": "Reasons for some actions. Examples - declining invitation, ending contract, withdrawing offer"
+  },
+  {
+    "name": "regions",
+    "kind": "query",
+    "permission": "\"Common Functionality - Read And Write Access\"",
+    "description": "Get the list of regions"
+  },
+  {
+    "name": "requestMetadata",
+    "kind": "query",
+    "permission": "\"Common Functionality - Read And Write Access\"",
+    "description": "Information about request - whether it is an internal requests, in specific mode, etc"
+  },
+  {
+    "name": "timeZones",
+    "kind": "query",
+    "permission": "\"Common Functionality - Read And Write Access\"",
+    "description": "List of all availabe time zones"
+  },
+  {
+    "name": "visitor",
+    "kind": "query",
+    "permission": "\"Common Functionality - Read And Write Access\"",
+    "description": "Visitor details"
+  },
+  {
+    "name": "contract",
+    "kind": "query",
+    "permission": "\"Offer - Read-Only Access\"",
+    "description": "Fetch contract information by ID. Note: The provided 'id' corresponds to the id of the contract term in the ContractDetails schema."
+  },
+  {
+    "name": "contractByTerm",
+    "kind": "query",
+    "permission": "\"Offer - Read-Only Access\"",
+    "description": "Get contract data by term id"
+  },
+  {
+    "name": "contractDetails",
+    "kind": "query",
+    "permission": "\"Offer - Read-Only Access\"",
+    "description": "Get contract data by contract id."
+  },
+  {
+    "name": "contractList",
+    "kind": "query",
+    "permission": "\"Offer - Read-Only Access\"",
+    "description": "Get contract details list by contract ids"
+  },
+  {
+    "name": "contractProposal",
+    "kind": "query",
+    "permission": "\"Contract - Read and Write Access\"",
+    "description": "Fetch contract proposal information by contract proposal ID."
+  },
+  {
+    "name": "contractTerm",
+    "kind": "query",
+    "permission": "\"Offer - Read-Only Access\"",
+    "description": "Get contract and single term data"
+  },
+  {
+    "name": "customFields",
+    "kind": "query",
+    "permission": "\"Common Entities - Read-Only Access\"",
+    "description": "Custom fields information"
+  },
+  {
+    "name": "offer",
+    "kind": "query",
+    "permission": "\"Offer - Read-Only Access\"",
+    "description": "Returns offer for the given id"
+  },
+  {
+    "name": "offersByAttribute",
+    "kind": "query",
+    "permission": "\"Offer - Read-Only Access\"",
+    "description": "Get offers by search attribute and id."
+  },
+  {
+    "name": "offersByAttributes",
+    "kind": "query",
+    "permission": "One of: \"Offer - Read-Only Access\" OR \"Offer - Read And Write Access\"",
+    "description": "Get modernized offers by search for multiple attributes ids."
+  },
+  {
+    "name": "vendorContracts",
+    "kind": "query",
+    "permission": "\"Offer - Read-Only Access\"",
+    "description": "Get list of contracts associated with a specific vendor"
+  },
+  {
+    "name": "ontologyCategories",
+    "kind": "query",
+    "permission": "One of: \"Ontology - Read-Only Access\" OR \"Common Functionality - Read And Write Access\"",
+    "description": "Fetch all enabled categories/subcategories/services"
+  },
+  {
+    "name": "ontologyElementsSearchByPrefLabel",
+    "kind": "query",
+    "permission": "\"Common Entities - Read-Only Access\"",
+    "description": "Allows search of elements by prefLabel and return the elements that have provided string in prefLabel, at start, end or in the middle; case insensitive"
+  },
+  {
+    "name": "ontologyEntities",
+    "kind": "query",
+    "permission": "One of: \"Ontology - Read-Only Access\" OR \"Common Functionality - Read And Write Access\"",
+    "description": "Lookup entities by IDs"
+  },
+  {
+    "name": "ontologyEntitiesFiltered",
+    "kind": "query",
+    "permission": "One of: \"Ontology - Read-Only Access\" OR \"Common Functionality - Read And Write Access\"",
+    "description": "Lookup entities by pref label and status, currently this field supports only taxonomyLevel=SERVICE E.g supported filtering : ontologyEntityFilter:{preferredLabel_any:\"javascript\", taxonomyLevel: SERVICE, limit: 5}"
+  },
+  {
+    "name": "ontologyEntity",
+    "kind": "query",
+    "permission": "\"Ontology - Read-Only Access\"",
+    "description": "Fetch entity by ID"
+  },
+  {
+    "name": "ontologyEntitySearchRecords",
+    "kind": "query",
+    "permission": "\"Ontology - Read-Only Access\"",
+    "description": "Search ontology entities by ontoloyIds ontologyId is consistent accross all environments as opposed to UID which is unique per environment example: upwork:AndroidGameDevelopmentEngines"
+  },
+  {
+    "name": "ontologyOccupationsCategoriesServices",
+    "kind": "query",
+    "permission": "\"Ontology - Read-Only Access\"",
+    "description": "Searches occupations categories services by list of category Uids and return the list of categories and a map of every category and related services"
+  },
+  {
+    "name": "ontologySkills",
+    "kind": "query",
+    "permission": "One of: \"Common Functionality - Read And Write Access\" OR \"Common Entities - Read-Only Access\"",
+    "description": "Get the list of skills paginated with limit and offset"
+  },
+  {
+    "name": "accountingEntity",
+    "kind": "query",
+    "permission": "\"Read only access for transaction data\"",
+    "description": "Get the Accounting Entity of the current user from their organization uid"
+  },
+  {
+    "name": "bidsForJob",
+    "kind": "query",
+    "permission": "\"Submit Proposal\"",
+    "description": "Retrieves top 4 bids for the specific job post."
+  },
+  {
+    "name": "connectsSummary",
+    "kind": "query",
+    "permission": "\"Ad Credits and Connects Information - Read-Only Access\"",
+    "description": "Fetch connects summary"
+  },
+  {
+    "name": "connectUsageHistory",
+    "kind": "query",
+    "permission": "\"Ad Credits and Connects Information - Read-Only Access\"",
+    "description": "Returns the connects usage hostory for the current user"
+  },
+  {
+    "name": "clientInvitation",
+    "kind": "query",
+    "permission": "\"List Invitation Entities as a client - Read-Only Access\"",
+    "description": "Returns client invitation for a given invitation Id"
+  },
+  {
+    "name": "clientInvitationsActive",
+    "kind": "query",
+    "permission": "\"List Invitation Entities as a client - Read-Only Access\"",
+    "description": "Returns client active invitations for a given job posting"
+  },
+  {
+    "name": "contractProposalsByFreelancer",
+    "kind": "query",
+    "permission": "\"Contract Proposals Entities - Read-Only Access\"",
+    "description": "Get contract proposals by freelancer id"
+  },
+  {
+    "name": "proposalMetadata",
+    "kind": "query",
+    "permission": "One of: \"Common Functionality - Read And Write Access\" OR \"Common Entities - Read-Only Access\"",
+    "description": "Metadata for proposals"
+  },
+  {
+    "name": "vendorProposal",
+    "kind": "query",
+    "permission": "\"Client Proposals - Read And Write Access\"",
+    "description": "Vendor proposal by ID"
+  },
+  {
+    "name": "vendorProposals",
+    "kind": "query",
+    "permission": "\"Client Proposals - Read And Write Access\"",
+    "description": "List of vendor proposals based on filters like job posting ids, vendor id, etc. This query is intended for vendors (freelancers and agencies) only, not for clients. \"after\" field in pagination only supports null or cursor based pagination returned in VendorProposalsConnection.pageInfo.endCursor. The target organization agency is controlled through the context organization provided in the X-Upwork-API-TenantId header. If the X-Upwork-API-TenantId header is not provided, the default organization w"
+  },
+  {
+    "name": "clientProposal",
+    "kind": "query",
+    "permission": "\"Client Proposals - Read And Write Access\"",
+    "description": "Client proposal by ID"
+  },
+  {
+    "name": "clientProposals",
+    "kind": "query",
+    "permission": "\"Client Proposals - Read And Write Access\"",
+    "description": "Search client proposal"
+  },
+  {
+    "name": "contractProposalsByAgency",
+    "kind": "query",
+    "permission": "\"Contract Proposals Entities - Read-Only Access\"",
+    "description": "Get contract proposal by contractorId and teamId"
+  },
+  {
+    "name": "contractProposalsByClientOrg",
+    "kind": "query",
+    "permission": "\"Contract Proposals Entities - Read-Only Access\"",
+    "description": "Get contract proposals by client organization id"
+  },
+  {
+    "name": "contractTimeReport",
+    "kind": "query",
+    "permission": "\"TimeSheet - Read-Only Access\"",
+    "description": ""
+  },
+  {
+    "name": "timeReport",
+    "kind": "query",
+    "permission": "\"TimeSheet - Read-Only Access\"",
+    "description": "Get the time report details for the given time range and a given organization"
+  },
+  {
+    "name": "transactionHistory",
+    "kind": "query",
+    "permission": "One of: \"Read only access for transaction data\" OR \"Common Entities - Read-Only Access\"",
+    "description": "Returns some total data about the entire set of transactions. Result also includes groups of pending transactions, if available."
+  },
+  {
+    "name": "freelancerProfileSearchRecords",
+    "kind": "query",
+    "permission": "\"Freelancer Profile - Read And Write Access\"",
+    "description": "Search freelancer profiles based on various filters"
+  },
+  {
+    "name": "marketplaceJobPostingsSearch",
+    "kind": "query",
+    "permission": "\"Read marketplace Job Postings\"",
+    "description": "Search Marketplace Jobs and get their relevant details searchType determines the context and method of the job search being executed Note : searchType value will be ignored and always set to USER_JOBS_SEARCH, utilized when performing a user-initiated job search."
+  },
+  {
+    "name": "publicMarketplaceJobPostingsSearch",
+    "kind": "query",
+    "permission": "\"Read public marketplace Job Postings\"",
+    "description": "Public job postings in the marketplace"
+  },
+  {
+    "name": "search",
+    "kind": "query",
+    "permission": "\"Freelancer Profile - Read And Write Access\"",
+    "description": "Universal search"
+  },
+  {
+    "name": "talentCloudTasks",
+    "kind": "query",
+    "permission": "\"Job Postings - Read-Only Access\"",
+    "description": "List of task overviews for specified talent clouds"
+  },
+  {
+    "name": "talentPortfolioProjects",
+    "kind": "query",
+    "permission": "\"Talent Profile - Read And Write Access public\"",
+    "description": "Loads profile projects by filter parameters"
+  },
+  {
+    "name": "talentProfile",
+    "kind": "query",
+    "permission": "\"Talent Profile - Read And Write Access public\"",
+    "description": "Primary or specialized profile can be retrieved. In order to get specialized profile set primary to false The general profile will be returned when primary input is not supplied."
+  },
+  {
+    "name": "talentProfileByProfileKey",
+    "kind": "query",
+    "permission": "\"Talent Profile - Read And Write Access public\"",
+    "description": "Primary profile by profile key"
+  },
+  {
+    "name": "talentProfiles",
+    "kind": "query",
+    "permission": "\"Talent Profile - Read And Write Access public\"",
+    "description": "Loads general profile by personId list and profileIds"
+  },
+  {
+    "name": "talentSpecializedProfile",
+    "kind": "query",
+    "permission": "\"Talent Profile - Read And Write Access public\"",
+    "description": "Primary or specialized profile can be retrieved."
+  },
+  {
+    "name": "talentSpecializedProfiles",
+    "kind": "query",
+    "permission": "\"Talent Profile - Read And Write Access public\"",
+    "description": "Primary or specialized profile can be retrieved."
+  },
+  {
+    "name": "talentWorkHistory",
+    "kind": "query",
+    "permission": "\"Talent Workhistory - Read Only Access\"",
+    "description": "Returns the work history for a talent including contracts and feedback"
+  },
+  {
+    "name": "company",
+    "kind": "query",
+    "permission": "\"Common Entities - Read-Only Access\"",
+    "description": "Get company info"
+  },
+  {
+    "name": "companySelector",
+    "kind": "query",
+    "permission": "\"Common Entities - Read-Only Access\"",
+    "description": "Company selector provides information on companies that user can select"
+  },
+  {
+    "name": "contractRoom",
+    "kind": "query",
+    "permission": "One of: \"Messaging - Read-Only Access\" OR \"Messaging - Read and Write Access\"",
+    "description": "Returns the interview room associated with the given contractId"
+  },
+  {
+    "name": "freelancerProfileByProfileKey",
+    "kind": "query",
+    "permission": "\"Freelancer Profile - Read And Write Access\"",
+    "description": "Retrieve freelancer profile by the freelancer profile key(ciphertext)"
+  },
+  {
+    "name": "offerRoom",
+    "kind": "query",
+    "permission": "One of: \"Messaging - Read-Only Access\" OR \"Messaging - Read and Write Access\"",
+    "description": "Returns room associated with the given offerId"
+  },
+  {
+    "name": "oneOnOneRoom",
+    "kind": "query",
+    "permission": "One of: \"Messaging - Read-Only Access\" OR \"Messaging - Read and Write Access\"",
+    "description": "Returns one-on-one room between the current user and specified user within an organization"
+  },
+  {
+    "name": "organization",
+    "kind": "query",
+    "permission": "One of: \"Common Functionality - Read And Write Access\" OR \"Common Entities - Read-Only Access\"",
+    "description": "Current organization"
+  },
+  {
+    "name": "profileActivityMetrics",
+    "kind": "query",
+    "permission": "\"Activity Entities - Read-Only Access\"",
+    "description": "Returns profile activity metrics for the authenticated freelancer, including profile views, invitations, and proposal activity over time."
+  },
+  {
+    "name": "profileActivityMetricsAvailability",
+    "kind": "query",
+    "permission": "\"Activity Entities - Read-Only Access\"",
+    "description": "Returns the available date ranges for each profile activity metric type for the authenticated freelancer."
+  },
+  {
+    "name": "profileActivityMetricsLastUpdated",
+    "kind": "query",
+    "permission": "\"Activity Entities - Read-Only Access\"",
+    "description": "Returns the last updated timestamp for the requested profile activity metrics."
+  },
+  {
+    "name": "proposalRoom",
+    "kind": "query",
+    "permission": "One of: \"Messaging - Read-Only Access\" OR \"Messaging - Read and Write Access\"",
+    "description": "Returns room associated with a vendor proposal"
+  },
+  {
+    "name": "publicRooms",
+    "kind": "query",
+    "permission": "One of: \"Messaging - Read-Only Access\" OR \"Messaging - Read and Write Access\"",
+    "description": "Get public rooms inside an organization"
+  },
+  {
+    "name": "room",
+    "kind": "query",
+    "permission": "One of: \"Messaging - Read-Only Access\" OR \"Messaging - Read and Write Access\"",
+    "description": "Details of a room"
+  },
+  {
+    "name": "roomList",
+    "kind": "query",
+    "permission": "One of: \"Messaging - Read-Only Access\" OR \"Messaging - Read and Write Access\"",
+    "description": "List of rooms based on the given filter condition"
+  },
+  {
+    "name": "roomStories",
+    "kind": "query",
+    "permission": "One of: \"Messaging - Read-Only Access\" OR \"Messaging - Read and Write Access\"",
+    "description": "Returns stories in the room"
+  },
+  {
+    "name": "roomStory",
+    "kind": "query",
+    "permission": "One of: \"Messaging - Read-Only Access\" OR \"Messaging - Read and Write Access\"",
+    "description": "Returns a particular story from a room"
+  },
+  {
+    "name": "snapshotsByContractId",
+    "kind": "query",
+    "permission": "\"Scope to read snapshots information - Public\"",
+    "description": "List all Snapshots for given contract ID and particular timestamp. timestamp are in (Unix Epoch seconds)"
+  },
+  {
+    "name": "user",
+    "kind": "query",
+    "permission": "One of: \"Common Functionality - Read And Write Access\" OR \"Common Entities - Read-Only Access\"",
+    "description": "Current user"
+  },
+  {
+    "name": "workDays",
+    "kind": "query",
+    "permission": "\"TimeSheet - Read-Only Access\"",
+    "description": "list of working days for a contractId and a given time range"
+  },
+  {
+    "name": "workDiaryContract",
+    "kind": "query",
+    "permission": "\"Contract - Read and Write Access\"",
+    "description": "WorkDiary information with screenshot urls for a particular contract and a particular date"
+  },
+  {
+    "name": "accountAuditRecord",
+    "kind": "query",
+    "permission": "\"Organization - Read and Write access\"",
+    "description": "Audit information of the account management action"
+  },
+  {
+    "name": "staffsByPersonId",
+    "kind": "query",
+    "permission": "\"Common Entities - Read-Only Access\"",
+    "description": "Returns staff memberships for a given person identifier"
+  },
+  {
+    "name": "teamActivities",
+    "kind": "query",
+    "permission": "One of: \"Activity Entities - Read and Write Access\" OR \"Activity Entities - Read-Only Access\"",
+    "description": "Get a flat list (with no company/user description) of all activities under the specified team. A user needs to have hiring manager privileges within the team in order to create an activity at team level"
+  },
+  {
+    "name": "userDetails",
+    "kind": "query",
+    "permission": "\"View UserDetails\"",
+    "description": "Retrieves the user details based on their unique identifier. This query allows fetching detailed user information based on their ID. Ultimately, it returns the personal identifiable information (PII) of the user."
+  },
+  {
+    "name": "userIdsByEmail",
+    "kind": "query",
+    "permission": "\"Freelancer Profile - Read And Write Access\"",
+    "description": "Returns a list of user identifiers matching the provided email address"
+  },
+  {
+    "name": "workDiaryCompany",
+    "kind": "query",
+    "permission": "\"Read Work diary company for public user\"",
+    "description": "WorkDiary information with screenshot urls for a particular company and a particular date"
+  },
+  {
+    "name": "workflowView",
+    "kind": "query",
+    "permission": "\"Job Postings - Read and Write Access\"",
+    "description": "Workflow encapsulates the detailed sequence of tasks or business activities needed to complete a business process. Following query allows retreival of workflow associated with a particular entityType and entityId."
+  },
+  {
+    "name": "addJobPostingTag",
+    "kind": "mutation",
+    "permission": "\"Job Postings - Read and Write Access\"",
+    "description": "Adds a custom annotation tag to a job posting. Returns true when a new tag row is inserted; false when the tag already exists. Reserved/system-managed tags (for example `upwork-now`, `premium`) are rejected by the upstream service. Calls `marketplaceOpeningsDS` `POST /job/{uid}/annotations/tag/{name}`."
+  },
+  {
+    "name": "createDirectUploadLinkForJPAttachment",
+    "kind": "mutation",
+    "permission": "\"Job Details Entities - Write Access\"",
+    "description": "Create a direct link for Jop Posting attachment"
+  },
+  {
+    "name": "createJobPosting",
+    "kind": "mutation",
+    "permission": "\"Job Postings - Read and Write Access\"",
+    "description": "Create a new Job post"
+  },
+  {
+    "name": "removeJobPostingTag",
+    "kind": "mutation",
+    "permission": "\"Job Postings - Read and Write Access\"",
+    "description": "Removes a custom annotation tag from a job posting. Returns true when a tag row is deleted; false when the tag was not present. Calls `marketplaceOpeningsDS` `DELETE /job/{uid}/annotations/tag/{name}`."
+  },
+  {
+    "name": "updateJobPosting",
+    "kind": "mutation",
+    "permission": "\"Job Postings - Read and Write Access\"",
+    "description": "Update an existing Job post by its ID"
+  },
+  {
+    "name": "acceptOffer",
+    "kind": "mutation",
+    "permission": "\"Offer - Read And Write Access\"",
+    "description": "Freelancer accepts an Offer and returns the corresponding contract details."
+  },
+  {
+    "name": "endContractByFreelancer",
+    "kind": "mutation",
+    "permission": "\"Contract - Read and Write Access\"",
+    "description": "End a contract by a freelancer"
+  },
+  {
+    "name": "submitContractMilestone",
+    "kind": "mutation",
+    "permission": "\"Contract - Read and Write Access\"",
+    "description": "Submit a contract milestone for review/approval"
+  },
+  {
+    "name": "withdrawOffer",
+    "kind": "mutation",
+    "permission": "\"Offer - Read And Write Access\"",
+    "description": "Withdraw an offer."
+  },
+  {
+    "name": "activateMilestone",
+    "kind": "mutation",
+    "permission": "\"Offer - Read And Write Access\"",
+    "description": "Client activates an existing milestone Note: if the client is an enterprise, the milestone will be activated immediately. If not, the unified checkout will be created, and the activation will be done asynchronously provided that the checkout is fulfilled successfully"
+  },
+  {
+    "name": "approveMilestone",
+    "kind": "mutation",
+    "permission": "\"Offer - Read And Write Access\"",
+    "description": "Approves a milestone"
+  },
+  {
+    "name": "createMilestoneV2",
+    "kind": "mutation",
+    "permission": "\"Offer - Read And Write Access\"",
+    "description": "Client creates a new milestone (V2)"
+  },
+  {
+    "name": "createOffer",
+    "kind": "mutation",
+    "permission": "\"Offer - Read And Write Access\"",
+    "description": "Create offer mutation used for all available types of offer including Fixed price and Hourly"
+  },
+  {
+    "name": "deleteMilestone",
+    "kind": "mutation",
+    "permission": "\"Offer - Read And Write Access\"",
+    "description": "Client deletes an existing milestone"
+  },
+  {
+    "name": "editMilestone",
+    "kind": "mutation",
+    "permission": "\"Offer - Read And Write Access\"",
+    "description": "Client edits an existing milestone"
+  },
+  {
+    "name": "endContractAtomic",
+    "kind": "mutation",
+    "permission": "\"Contract - Read and Write Access\"",
+    "description": "End a contract using the atomic flow"
+  },
+  {
+    "name": "endContractByClient",
+    "kind": "mutation",
+    "permission": "\"Contract - Read and Write Access\"",
+    "description": "End a contract by a client"
+  },
+  {
+    "name": "pauseContract",
+    "kind": "mutation",
+    "permission": "\"Contract - Read and Write Access\"",
+    "description": "Pause a contract by a client"
+  },
+  {
+    "name": "rejectSubmittedMilestone",
+    "kind": "mutation",
+    "permission": "\"Offer - Read And Write Access\"",
+    "description": "Allows client to reject a milestone submission from a freelancer"
+  },
+  {
+    "name": "restartContract",
+    "kind": "mutation",
+    "permission": "\"Contract - Read and Write Access\"",
+    "description": "Restart a contract by a client"
+  },
+  {
+    "name": "updateContractHourlyLimit",
+    "kind": "mutation",
+    "permission": "\"Contract - Read and Write Access\"",
+    "description": "Update hourly limit"
+  },
+  {
+    "name": "savePersonJob",
+    "kind": "mutation",
+    "permission": "\"Job Details Entities - Write Access\"",
+    "description": "Saves job for the current person."
+  },
+  {
+    "name": "sendCustomPayment",
+    "kind": "mutation",
+    "permission": "\"Payments - Read and Write Access\"",
+    "description": "Send custom payment"
+  },
+  {
+    "name": "acceptVendorInvitation",
+    "kind": "mutation",
+    "permission": "\"Freelancer's Invitation Entities - Read and Write Access\"",
+    "description": "Accepts a vendor invitation and creates a proposal"
+  },
+  {
+    "name": "confirmFiles",
+    "kind": "mutation",
+    "permission": "\"Common Functionality - Read And Write Access\"",
+    "description": "Confirm files, returned is a flag indicating whether operation was successful or not"
+  },
+  {
+    "name": "confirmRoomMessageFiles",
+    "kind": "mutation",
+    "permission": "\"Messaging - Read and Write Access\"",
+    "description": "Confirms room message attachment files after upload to S3"
+  },
+  {
+    "name": "createClientJobInvitation",
+    "kind": "mutation",
+    "permission": "\"Management Job Postings\"",
+    "description": "Creates a new invitation for a given freelancer, client and jobPosting parameters"
+  },
+  {
+    "name": "createContractProposal",
+    "kind": "mutation",
+    "permission": "\"Submit Proposal\"",
+    "description": "Create (submit) a contract proposal. Vendor (freelancer or agency manager) operation."
+  },
+  {
+    "name": "createDirectUploadLinkForFileAttachment",
+    "kind": "mutation",
+    "permission": "\"Offer - Read And Write Access\"",
+    "description": "Returns file upload details, containing upload url, for the attachment type informed."
+  },
+  {
+    "name": "createDirectUploadLinkForJAClientProposal",
+    "kind": "mutation",
+    "permission": "\"Client Proposals - Read And Write Access\"",
+    "description": "Create direct upload link, to upload Job Application client proposal attachments"
+  },
+  {
+    "name": "createDirectUploadLinkForJAVendorProposal",
+    "kind": "mutation",
+    "permission": "\"Client Proposals - Read And Write Access\"",
+    "description": "Create direct upload link, to upload Job Application vendor proposal attachments"
+  },
+  {
+    "name": "createDirectUploadLinkForRoomMessage",
+    "kind": "mutation",
+    "permission": "\"Messaging - Read and Write Access\"",
+    "description": "Returns file upload details for a single room message attachment"
+  },
+  {
+    "name": "createJobProposal",
+    "kind": "mutation",
+    "permission": "\"Submit Proposal\"",
+    "description": "Create a new proposal using the new flow"
+  },
+  {
+    "name": "declineClientProposal",
+    "kind": "mutation",
+    "permission": "\"Client Proposals - Read And Write Access\"",
+    "description": "Decline client proposal"
+  },
+  {
+    "name": "hideClientProposal",
+    "kind": "mutation",
+    "permission": "\"Client Proposals - Read And Write Access\"",
+    "description": "Toggle hide status on the client proposal."
+  },
+  {
+    "name": "markClientProposalAsRead",
+    "kind": "mutation",
+    "permission": "\"Client Proposals - Read And Write Access\"",
+    "description": "Mark client proposal as read"
+  },
+  {
+    "name": "messageClientProposal",
+    "kind": "mutation",
+    "permission": "\"Client Proposals - Read And Write Access\"",
+    "description": "Message client proposal"
+  },
+  {
+    "name": "shortlistClientProposal",
+    "kind": "mutation",
+    "permission": "\"Client Proposals - Read And Write Access\"",
+    "description": "Shortlist client proposal"
+  },
+  {
+    "name": "withdrawContractProposal",
+    "kind": "mutation",
+    "permission": "\"Submit Proposal\"",
+    "description": "Withdraw a contract proposal. Vendor (freelancer or agency manager) operation."
+  },
+  {
+    "name": "invoiceDownloadBulkAsyncV2",
+    "kind": "mutation",
+    "permission": "\"Transaction data - Read And Write Access\"",
+    "description": "Generate bulk async PDFs invoice/receipt for given accounting entities as well as the given criteria."
+  },
+  {
+    "name": "invoiceDownloadBulkV2",
+    "kind": "mutation",
+    "permission": "\"Transaction data - Read And Write Access\"",
+    "description": "Generate bulk PDFs invoice/receipt for given accounting entities as well as the given criteria."
+  },
+  {
+    "name": "addFreelancerEmploymentRecord",
+    "kind": "mutation",
+    "permission": "\"Freelancer Profile - Read And Write Access\"",
+    "description": "Add a new employment record for the freelancer (userId is taken from the context)"
+  },
+  {
+    "name": "addFreelancerOtherExperience",
+    "kind": "mutation",
+    "permission": "\"Freelancer Profile - Read And Write Access\"",
+    "description": "Add a new otherExperience for the freelancer (userId is taken from the context)"
+  },
+  {
+    "name": "addTeamActivity",
+    "kind": "mutation",
+    "permission": "\"Activity Entities - Read and Write Access\"",
+    "description": "Create activity at team level. A user needs to have hiring manager privileges within the team in order to create an activity at team level"
+  },
+  {
+    "name": "addUserToRoom",
+    "kind": "mutation",
+    "permission": "\"Messaging - Read and Write Access\"",
+    "description": "Adds users to an existing room"
+  },
+  {
+    "name": "archiveRoom",
+    "kind": "mutation",
+    "permission": "\"Messaging - Read and Write Access\"",
+    "description": "Archives an existing room"
+  },
+  {
+    "name": "archiveTeamActivity",
+    "kind": "mutation",
+    "permission": "\"Activity Entities - Read and Write Access\"",
+    "description": "Archive activities. A user needs to have hiring manager privileges within the team in order to create an activity at team level"
+  },
+  {
+    "name": "assignTeamActivityToTheContract",
+    "kind": "mutation",
+    "permission": "\"Activity Entities - Read and Write Access\"",
+    "description": "Assign and unassign contract to the list of activities. A user needs to have hiring manager privileges within the team in order to create an activity at team level. Activity appears in freelancer's team client only if his contract is assigned to the activity and activities are activated for the ongoing contract. This mutation overrides assigned contracts for the given activities. For example, if you pass empty list of `codes`, freelancer's contract is unassigned from all the activities it is ass"
+  },
+  {
+    "name": "createOrganization",
+    "kind": "mutation",
+    "permission": "\"Organization - Read and Write access\"",
+    "description": "Create a new child organization"
+  },
+  {
+    "name": "createRoomStoryV2",
+    "kind": "mutation",
+    "permission": "\"Messaging - Read and Write Access\"",
+    "description": "Creates a new message or story in an existing room"
+  },
+  {
+    "name": "createRoomV2",
+    "kind": "mutation",
+    "permission": "\"Messaging - Read and Write Access\"",
+    "description": "Creates a new room and returns its information"
+  },
+  {
+    "name": "inviteToTeam",
+    "kind": "mutation",
+    "permission": "\"Organization - Read and Write access\"",
+    "description": "Invite someone by email or username to an existing team"
+  },
+  {
+    "name": "removeFreelancerEmploymentRecord",
+    "kind": "mutation",
+    "permission": "\"Freelancer Profile - Read And Write Access\"",
+    "description": "Delete employment record of the freelancer by employment record's id (provided userId is ignored and taken from the context)"
+  },
+  {
+    "name": "removeFreelancerOtherExperience",
+    "kind": "mutation",
+    "permission": "\"Freelancer Profile - Read And Write Access\"",
+    "description": "Delete other experience of the freelancer by other experience's id (userId is taken from the context)"
+  },
+  {
+    "name": "removeRoom",
+    "kind": "mutation",
+    "permission": "\"Messaging - Read and Write Access\"",
+    "description": "Removes a room permanently"
+  },
+  {
+    "name": "removeRoomStory",
+    "kind": "mutation",
+    "permission": "\"Messaging - Read and Write Access\"",
+    "description": "Removes a story from a room"
+  },
+  {
+    "name": "removeUserFromRoom",
+    "kind": "mutation",
+    "permission": "\"Messaging - Read and Write Access\"",
+    "description": "Removes a user from a room"
+  },
+  {
+    "name": "roomCreate1on1IfNotExists",
+    "kind": "mutation",
+    "permission": "\"Messaging - Read and Write Access\"",
+    "description": "Creates a one-on-one room if it does not exist and returns the room information"
+  },
+  {
+    "name": "unarchiveTeamActivity",
+    "kind": "mutation",
+    "permission": "\"Activity Entities - Read and Write Access\"",
+    "description": "Unarchive activities. A user needs to have hiring manager privileges within the team in order to create an activity at team level"
+  },
+  {
+    "name": "updateFreelancerAvailability",
+    "kind": "mutation",
+    "permission": "\"Freelancer Profile - Read And Write Access\"",
+    "description": "Update freelancer's availability given its id and userId"
+  },
+  {
+    "name": "updateFreelancerEmploymentRecord",
+    "kind": "mutation",
+    "permission": "\"Freelancer Profile - Read And Write Access\"",
+    "description": "Update freelancer's employment record given its id (userId is taken from the context)"
+  },
+  {
+    "name": "updateFreelancerOtherExperience",
+    "kind": "mutation",
+    "permission": "\"Freelancer Profile - Read And Write Access\"",
+    "description": "Update otherExperience for the freelancer given its id (userId is taken from the context)"
+  },
+  {
+    "name": "updateOrganization",
+    "kind": "mutation",
+    "permission": "\"Organization - Read and Write access\"",
+    "description": "Update organization data"
+  },
+  {
+    "name": "updateRoomStoryV2",
+    "kind": "mutation",
+    "permission": "\"Messaging - Read and Write Access\"",
+    "description": "Updates an existing message or story in a room"
+  },
+  {
+    "name": "updateRoomV2",
+    "kind": "mutation",
+    "permission": "\"Messaging - Read and Write Access\"",
+    "description": "Updates an existing room and returns the updated room"
+  },
+  {
+    "name": "updateTeamActivity",
+    "kind": "mutation",
+    "permission": "\"Activity Entities - Read and Write Access\"",
+    "description": "Update activity at team level. A user needs to have hiring manager privileges within the team in order to create an activity at team level"
+  },
+  {
+    "name": "updateWorkflowTask",
+    "kind": "mutation",
+    "permission": "\"Job Postings - Read and Write Access\"",
+    "description": "Updates the status of the individual task associated with the workflowId and taskId"
+  }
+]
