@@ -1,5 +1,9 @@
 # Upwork agent
 
+```
+https://github.com/amrkhedr96/upwork-mcp
+```
+
 One local MCP server plus one skill. Cursor, Claude, and Codex all talk to the same server. Each person uses their own Upwork API key. The agent searches jobs, analyzes them, drafts a proposal, and submits only after that person says to send it.
 
 ## Install
